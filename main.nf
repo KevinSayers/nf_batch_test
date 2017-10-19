@@ -4,7 +4,7 @@ refindex = file('Homo_sapiens.GRCh38.cdna.all.fa.fai')
 readone = file('SRR5023465_1.fastq')
 readtwo = file('SRR5023465_2.fastq')
 process barracudaIndex{
-	container = 'shub://KevinSayers/BarraCUDA_Singularity'
+	container = 'sayerskt/barracuda'
 
 	input:
 	file ref from transcriptFile
@@ -20,7 +20,7 @@ process barracudaIndex{
 }
 
 process barracudaAln{
-	container = 'shub://KevinSayers/BarraCUDA_Singularity'
+	container = 'sayerskt/barracuda'
 	maxForks 1
 
 	echo true
@@ -42,8 +42,8 @@ process barracudaAln{
 }
 
 process barracudaSampe{
-	container = 'shub://KevinSayers/BarraCUDA_Singularity'
-	publishDir 's3://msthesis/testing/', mode: 'copy' 
+	container = 'sayerskt/barracuda'
+	publishDir 's3://msthesis/testingbatch/', mode: 'copy' 
 
 	maxForks 1
 
