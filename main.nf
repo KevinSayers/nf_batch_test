@@ -43,7 +43,7 @@ process barracudaAln{
 
 process barracudaSampe{
 	container = 'sayerskt/barracuda'
-	publishDir 's3://msthesis/testingbatch/', mode: 'copy' 
+	publishDir 'testingbatch/', mode: 'copy' 
 
 	maxForks 1
 
